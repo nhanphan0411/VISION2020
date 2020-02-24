@@ -10,7 +10,7 @@ This repository is still a work-in-process.
 To prepare dataset for training, move to ```/src``` and run:
 
 ```
-python3 data.py --download --augment div2k
+python3 data.py --download --dataset div2k
 ```
 
 The DIV2K dataset will be downloaded to ```data``` folder, which locates at the project's root folder. 
