@@ -1,10 +1,16 @@
-# SRGANS
+# ESRGANS
+
+The Enhanced Super-Resolution Generative Adversarial Network (ESRGAN) is a seminal work that is capable of upscaling low-resolution images to high-resolution ones while generating realistic textures. The whole project is built on Tensorflow2. Its model is designed based on Xintao Wang et al’s research on ESRGAN (2018) - inherits the idea about Residual-in-Residual Dense Block. 
+
+At the end, the project successfully generates high-resolution photo that sizes up to 8 times (per dimension) compared with the low-resolution one. 
+
+This repository is still a work-in-process. 
 
 ## PREPARE DATASET
 To prepare dataset for training, move to ```/src``` and run:
 
 ```
-python3 data.py --transform --augment [True or False]
+python3 data.py --download --augment div2k
 ```
 
 The DIV2K dataset will be downloaded to ```data``` folder, which locates at the project's root folder. 
@@ -19,20 +25,11 @@ After the download process finished, the dataset is transformed into Tensorflow 
 
 To train the Generator network, run:
 ```
-python3 train.py --type generator --step [number of training step] --evaluate [number of steps]
+python3 train.py --train --type generator --epochs [number of training epoch] --logname [name of trainning session log file]
 ```
 
 To train the whole GANS network, run:
 ```
-python3 train.py --type gans --step [number of training step] --evaluate [number of steps]
+python3 train.py --train --type gan --epochs [number of training epoch] --logname [name of trainning session log file]
 ```
-
-```--step``` to indicate number of training steps 
-
-```--evaluate``` to indicate the number of steps that after that losses are updated in log file
-
-- After being trained, weights will be saved at log directory ```../log/ckpt/``` as ```pre_generator.h5``` and ```gan_generator.h5```
-- A loss monitor file will also be saved at ```../log```. 
-
-- Note that the training process on the whole GANS network will eventually load the pre-trained weights (```pre_generator.h5```) onto Generator model before starting to train the whole system. 
 
