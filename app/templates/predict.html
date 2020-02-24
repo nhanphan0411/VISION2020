@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Content -->
+<div class="container-fluid">
+    <div class="row no-gutter">
+        <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+          <div class="col-md-8 col-lg-6">
+            <div class="login d-flex align-items-center py-5">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-9 col-lg-8 mx-auto">
+                    
+                    <div class="form-label-group">
+                            <img id="blah" name='img' src="static/images/{{path}}" alt="your image" width = '300'/>
+                        </div>
+                    
+                    <div class="form-label-group">
+                          <img id="hr" name='img' src="data:image/png;base64,{{predict}}" alt="your image" width = '600'/>
+                        </div> 
+
+                    <div class="form-label-group">
+                            <button type="button" id="TrueButton" class="btn btn-outline-warning btn-sm">Correct</button>
+                            <input id="myFeedbackButton" class="btn btn-outline-info btn-sm" type = "submit" value="Something Wrong"/>
+                        </div>        
+
+                    <div class="form-label-group">
+                            <a class="btn btn-secondary" href="{{url_for('index')}}">Back to home</a>
+                            </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+{% endblock %}

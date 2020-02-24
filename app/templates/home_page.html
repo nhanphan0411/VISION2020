@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<!-- Content -->
+<div class="container-fluid">
+    <div class="row no-gutter">
+      
+        <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+
+          <div class="col-md-8 col-lg-6">
+            <div class="login d-flex align-items-center py-5">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-9 col-lg-8 mx-auto">
+                    <h3 class="login-heading mb-4">⍝</h3>
+                    <h3 class="login-heading mb-4">upload low-res</h3>
+                    <form action = "/upload" method = "POST" enctype = "multipart/form-data">
+                        <div class="form-label-group">
+                            <img id="blah" name='img' src="#" alt="your image" style = "display:none"/>
+                            <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type='file' class="custom-file-input" id="inputGroupFile01" name = 'file' onchange="readURL(this);"/>
+                                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <input id="myButton" class="btn btn-primary" type = "submit" value="X4"/>
+                                    </div>
+                            </div>
+                        </div>    
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+<footer id="sticky-footer" style="background-color: black;">
+  <div class="container text-center">
+  <marquee scrollamount=13> ☀︎ SCROLL DOWN FOR HI-RES ▼ COPYRIGHT &copy; MARIANA 2K20 ⚘ nhaninsummer@gmail.com ⚜︎</marquee>
+  </div>
+</footer>
+
+<div style="width:100vw" class="hr"> 
+  <img id="prediction" name='img' src="#" alt="your image" style = "display:none"/>
+</div>
+
+
+
+{% endblock %}
+
+{% block script %}
+<script src="static/js/index.js"></script>
+
+{%endblock%}
+<!-- <a class='git-btn' target='_blank' href="http://www.github.com/nhanphan0411"><img src='https://i.imgur.com/rpBA7I1.png'></a> -->
+<!-- https://i.imgur.com/rpBA7I1.png' -->
