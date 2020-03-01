@@ -42,7 +42,7 @@ Training process for the GAN system includes two phases Initial Generator Traini
 ```
 python3 train.py 
 --type ['generator' or 'gan'] 
---dataset div2k 
+--dataset ['div2k' or 'f2k'] 
 --epochs [number of training epochs]
 --genpath [generator's weight path - optional]
 --dispath [discriminator's weight path - optional]
