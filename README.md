@@ -4,32 +4,59 @@ The Enhanced Super-Resolution Generative Adversarial Network (ESRGAN) is a semin
 
 At the end, the project successfully generates high-resolution photo that sizes up to 8 times (per dimension) compared with the low-resolution one. 
 
-This repository is still a work-in-process. 
+------
+## DATA STRUCTURE
+
+|--data/
+|----div2k/
+|----Flickr2K/
+|--src/
+|--log/
+|--app/
+
+-------
+
+Please refer to below code to download the dataset. 
 
 ## PREPARE DATASET
 To prepare dataset for training, move to ```/src``` and run:
 
 ```
-python3 data.py --download --dataset div2k
+python3 data.py --download --dataset ['div2k' or 'f2k']
 ```
 
-The DIV2K dataset will be downloaded to ```data``` folder, which locates at the project's root folder. 
+The dataset will be downloaded to ```data``` folder, which locates at the project's root folder. 
 
 (More information about DIV2K dataset: https://data.vision.ee.ethz.ch/cvl/DIV2K/)
-
-After the download process finished, the dataset is transformed into Tensorflow dataset and ready for training. Optional augmentation can be applied by choosing ```True``` or ```False```.
+(More information about Flickr2K dataset: https://github.com/limbee/NTIRE2017#dataset)
 
 ------
 
 ## TRAIN
 
-To train the Generator network, run:
+Training process for the GAN system includes two phases Initial Generator Training and GAN Training. To start the training session, run: 
+
 ```
-python3 train.py --train --type generator --epochs [number of training epoch] --logname [name of trainning session log file]
+python3 train.py 
+--type ['generator' or 'gan'] 
+--dataset div2k 
+--epochs [number of training epochs]
+--genpath [generator's weight path - optional]
+--dispath [discriminator's weight path - optional]
+--logname [name of loss record log file] 
+--modelname [name of saved model]
 ```
 
-To train the whole GANS network, run:
+Saved model directory is set at '../log/model' at default.
+
+-------
+
+## DEMO WEB APP
+
+To run demo app, back to project root's folder and run:
+
 ```
-python3 train.py --train --type gan --epochs [number of training epoch] --logname [name of trainning session log file]
+python3 app/main.py
 ```
+
 
