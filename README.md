@@ -1,4 +1,4 @@
-# ☀︎ ABOUT
+## ✺ ABOUT
 
 VISION2020 is a work to implement ESRGAN in order to improve image resolution. This is my final project for Machine Learning Bootcamp (Mariana Class) at CoderSchool (Feb/2020) 
 
@@ -19,7 +19,7 @@ At the end, the project successfully generates high-resolution photo that sizes 
 |--app/
 ```
 
--------
+------
 
 Please refer to below code to download the dataset. 
 
@@ -66,7 +66,7 @@ python3 app/main.py
 
 -------
 
-## ☕︎ REFERENCES 
+## ◉ REFERENCES 
 
 - ESRGAN on Tensorflow 1 -- https://github.com/hiram64/ESRGAN-tensorflow
 - ESRGAN on PyTorch -- https://github.com/xinntao/ESRGAN
