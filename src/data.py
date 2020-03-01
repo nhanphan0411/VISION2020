@@ -97,6 +97,8 @@ class DataLoader(object):
         f2k_img_dir = os.path.join(self.image_dir, 'Flickr2K')
         if not os.path.exists(f2k_img_dir):
             download_archive(f2k_file, source_url, f2k_img_dir, extract=True)
+        else:
+            raise ValueError('Dataset already existed.')
 
     # --------// DATA LOADING MODULE // --------
     def load_paths_from_directory(self, directory):

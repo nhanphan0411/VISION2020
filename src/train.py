@@ -98,7 +98,7 @@ class Pretrain():
         self.optimizer.apply_gradients(zip(grad, self.generator.trainable_weights))
         return pre_gen_loss
 
-    def train_gen(self, train_ds, log_filename, model_save_name, epochs=2000, print_every=100, save_every=100):    
+    def train_gen(self, train_ds, epochs, print_every, save_every, log_filename, model_save_name):    
         if not model_save_dir:
             os.makedirs(model_save_dir)
 
@@ -137,7 +137,7 @@ class Train():
     def train_step(self, lr, hr):
         if not model_save_dir:
             os.makedirs(model_save_dir)
-            
+
         with tf.GradientTape() as gen_tape, tf.GradientTape() as disc_tape:
             lr = tf.cast(lr, tf.float32)
             hr = tf.cast(hr, tf.float32)
@@ -161,7 +161,7 @@ class Train():
 
         return generator_loss, discriminator_loss 
 
-    def train_gan(self, train_ds, log_filename, model_save_name, epochs=5000, print_every=100, save_every=100):
+    def train_gan(self, train_ds, epochs, print_every, save_every, log_filename, model_save_name):
         pls_metric = Mean()
         dls_metric = Mean()
 
@@ -203,40 +203,53 @@ class Train():
 if __name__ == "__main__":
     
     parser = argparse.ArgumentParser()
-    
-    parser.add_argument("--train", action="store_true", default=False)
+
     parser.add_argument("--dataset", type=str, required=True)
     parser.add_argument("--type", type=str, required=True)
-    parser.add_argument("--epochs", type=int, required=True)
     parser.add_argument("--genpath", type=str, required=False)
     parser.add_argument("--dispath", type=str, required=False)
+
+    parser.add_argument("--epochs", type=int, required=True)
+    parser.add_argument("--print_every", type=int, required=True)
+    parser.add_argument("--save_every", type=int, required=True)
+    
     parser.add_argument("--logname", type=str, required=True)
     parser.add_argument("--modelname", type=str, required=True)
 
     args = parser.parse_args()
 
-    if args.train:
-        if args.type == "generator":
-            print('START GENERATOR TRAINING SESSION')
-            train_ds, num_train = DataLoader(dataset_name = 'div2k', subset='train').load_dataset()
-            valid_ds, num_valid = DataLoader(dataset_name = 'div2k', subset='valid').load_dataset()
-            generator = Generator().build(noise_shape=(None, None, 3))
-            Pretrain(generator).train_gen(train_ds, epochs = args.epochs, log_filename=args.logname, model_save_name=args.modelname)
-            print('FINISHED.')
+    if args.type == "generator":
+        print('START GENERATOR TRAINING SESSION')
+        train_ds, num_train = DataLoader(dataset_name = 'div2k', subset='train').load_dataset()
+        valid_ds, num_valid = DataLoader(dataset_name = 'div2k', subset='valid').load_dataset()
+        generator = Generator().build(noise_shape=(None, None, 3))
         
-        if args.type == "gan":
-            print('START GAN TRAINING SESSION')
-            train_ds, val_ds, num_train, num_test = DataLoader(dataset_name=args.dataset).load_dataset()
-            
-            if args.genpath:
-                generator = tf.keras.models.load_model(args.genpath)
-            else:
-                generator = Generator().build(noise_shape=(None, None, 3)) 
+        Pretrain(generator).train_gen(train_ds, 
+                                        epochs = args.epochs, 
+                                        print_every=args.print_every, 
+                                        save_every=args.save_every, 
+                                        log_filename=args.logname, 
+                                        model_save_name=args.modelname)
+        print('FINISHED.')
+    
+    if args.type == "gan":
+        print('START GAN TRAINING SESSION')
+        train_ds, val_ds, num_train, num_test = DataLoader(dataset_name=args.dataset).load_dataset()
+        
+        if args.genpath:
+            generator = tf.keras.models.load_model(args.genpath)
+        else:
+            generator = Generator().build(noise_shape=(None, None, 3)) 
 
-            if args.dispath:
-                discriminator = tf.keras.models.load_model(args.dispath)
-            else:
-                discriminator = Discriminator.build(hr_shape=(128, 128, 3))
-            
-            Train(generator, discriminator).train_gan(train_ds, epochs = args.epochs, log_filename=args.logname, model_save_name=args.modelname)
-            print('FINISHED.')
+        if args.dispath:
+            discriminator = tf.keras.models.load_model(args.dispath)
+        else:
+            discriminator = Discriminator.build(hr_shape=(128, 128, 3))
+        
+        Train(generator, discriminator).train_gan(train_ds, 
+                                                    epochs = args.epochs, 
+                                                    print_every=args.print_every, 
+                                                    save_every=args.save_every, 
+                                                    log_filename=args.logname, 
+                                                    model_save_name=args.modelname)
+        print('FINISHED.')
