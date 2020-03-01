@@ -7,12 +7,15 @@ At the end, the project successfully generates high-resolution photo that sizes 
 ------
 ## DATA STRUCTURE
 
+```
 |--data/
 |----div2k/
 |----Flickr2K/
 |--src/
 |--log/
+|----model/
 |--app/
+```
 
 -------
 
