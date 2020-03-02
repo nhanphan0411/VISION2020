@@ -62,8 +62,6 @@ class DataLoader(object):
     
     # --------// DOWNLOAD MODULE // --------
     def download_div2k(self):
-        ''' Download DIV2K dataset to designated directory.
-        '''
         source_url = 'http://data.vision.ee.ethz.ch/cvl/DIV2K/'
         div2k_img_dir = os.path.join(self.image_dir, 'div2k/images')
         
@@ -152,7 +150,6 @@ class DataLoader(object):
 # -----------------------------------------------------------
 #  Downloader
 # -----------------------------------------------------------
-
 def download_archive(file, source_url, target_dir, extract=True):
     download_path = os.path.join(source_url, file)
     target_dir = os.path.abspath(target_dir)

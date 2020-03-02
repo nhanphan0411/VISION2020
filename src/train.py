@@ -99,7 +99,7 @@ class Pretrain():
         return pre_gen_loss
 
     def train_gen(self, train_ds, epochs, print_every, save_every, log_filename, model_save_name):    
-        if not model_save_dir:
+        if not os.path.exists(model_save_dir):
             os.makedirs(model_save_dir)
 
         log_file = open(os.path.join(LOG_DIR, '{}.txt'.format(log_filename)), 'w+')
@@ -128,14 +128,14 @@ class Pretrain():
 # -----------------------------------------------------------
 class Train():
     def __init__(self, generator, discriminator):
-            self.generator = generator
-            self.discriminator = discriminator
+        self.generator = generator
+        self.discriminator = discriminator
             
         self.generator_optimizer, self.discriminator_optimizer = Optimizer().gan_optimizer(gan_learning_rate=1e-4)
 
     @tf.function
     def train_step(self, lr, hr):
-        if not model_save_dir:
+        if not os.path.exists(model_save_dir):
             os.makedirs(model_save_dir)
 
         with tf.GradientTape() as gen_tape, tf.GradientTape() as disc_tape:
