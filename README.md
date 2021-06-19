@@ -1,6 +1,6 @@
 ## ✺ ABOUT
 
-**VISION2020** is a work to implement ESRGAN in order to improve image resolution. This is my final project for Machine Learning Bootcamp (Mariana Class) at CoderSchool (Feb/2020) 
+**VISION2020** is a work to implement ESRGAN with Tensorflow 2 in order to improve image resolution. This is my final project for Machine Learning Bootcamp (Mariana Class) at CoderSchool (Feb/2020) 
 
 **ESRGAN** - The Enhanced Super-Resolution Generative Adversarial Network is a seminal work that is capable of upscaling low-resolution images to high-resolution ones while generating realistic textures. The whole project is built on Tensorflow2. Its model is designed based on Xintao Wang et al’s research on ESRGAN (2018) - inherits the idea about Residual-in-Residual Dense Block. 
 
