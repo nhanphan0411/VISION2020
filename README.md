@@ -1,6 +1,6 @@
 # **VISION2020 - ESRGAN IMPLEMENTATION ON TENSORFLOW 2**
 
-**The project is by Nhan Phan, as his Final Project for the Machine Learning Bootcamp at CoderSchool (Feb/2020)**
+***The project is by Nhan Phan, as his Final Project for the Machine Learning Bootcamp at CoderSchool (Feb/2020)***
 
 ![](https://miro.medium.com/proxy/1*E-JmUwv7zbwjzFm1hJLxPA.png)
 
