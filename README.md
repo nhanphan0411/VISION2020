@@ -2,8 +2,6 @@
 
 ***The project is by Nhan Phan, as his Final Project for the Machine Learning Bootcamp at CoderSchool (Feb/2020)***
 
-![](https://miro.medium.com/proxy/1*E-JmUwv7zbwjzFm1hJLxPA.png)
-
 ![alt text](https://github.com/xinntao/ESRGAN/blob/master/figures/baboon.jpg?raw=true)
 
 **VISION2020** aims at recovering a high resolution image from a low resolution one. The project is based largely on the excellent research of Xintao Wang, Ke Yu, Shixiang Wu, Jinjin Gu, Yihao Liu, Chao Dong, Yu Qiao, Chen Change Loy on [ESRGAN](https://arxiv.org/pdf/1809.00219v2.pdf) (2018) and their [implementation](https://github.com/xinntao/ESRGAN) using Pytorch.
@@ -16,7 +14,7 @@ In particular, we introduce the Residual-in-Residual Dense Block (RRDB) without 
 
 Benefiting from these improvements, the proposed ESRGAN achieves consistently better visual quality with more realistic and natural textures than SRGAN. The project is optimized and built entirely on Tensorflow 2.0. It successfully resizes the image up to x64 on square area.
 
-Result samples ▸
+Sample result ▸
 
 **x4 per dimension**
 <img src='https://i.imgur.com/vzw0TvE.png'>
