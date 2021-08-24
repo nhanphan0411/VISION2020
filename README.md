@@ -1,6 +1,6 @@
-#**VISION2020 - ESRGAN IMPLEMENTATION ON TENSORFLOW 2**
+# **VISION2020 - ESRGAN IMPLEMENTATION ON TENSORFLOW 2**
 
-*The project is by Nhan Phan, as his Final Project for the Machine Learning Bootcamp at CoderSchool (Feb/2020)*
+**The project is by Nhan Phan, as his Final Project for the Machine Learning Bootcamp at CoderSchool (Feb/2020)**
 
 ![](https://miro.medium.com/proxy/1*E-JmUwv7zbwjzFm1hJLxPA.png)
 
@@ -8,10 +8,7 @@
 
 **VISION2020** aims at recovering a high resolution image from a low resolution one. The project is based largely on the excellent research of Xintao Wang, Ke Yu, Shixiang Wu, Jinjin Gu, Yihao Liu, Chao Dong, Yu Qiao, Chen Change Loy on [ESRGAN](https://arxiv.org/pdf/1809.00219v2.pdf) (2018) and their [implementation](https://github.com/xinntao/ESRGAN) using Pytorch.
 
-**Single image super-resolution (SISR)**, as a fundamental low-level vision problem, has attracted increasing attention in the research community and AI companies. SISR aims at recovering a high-resolution (HR) image from a single
-low-resolution (LR) one. 
-
-Since the pioneer work of SRCNN proposed by Dong et al., deep convolution neural network (CNN) approaches have brought prosperous development. Various network architecture designs and training strategies have continuously improved the SR performance.
+**Single image super-resolution (SISR)**, as a fundamental low-level vision problem, has attracted increasing attention in the research community and AI companies. SISR aims at recovering a high-resolution (HR) image from a single low-resolution (LR) one. Since the pioneer work of SRCNN proposed by Dong et al., deep convolution neural network (CNN) approaches have brought prosperous development. Various network architecture designs and training strategies have continuously improved the SR performance.
 
 The **Super-Resolution Generative Adversarial Network (SRGAN)** is a seminal work that is capable of generating realistic textures during single image super-resolution. However, the hallucinated details are often accompanied with unpleasant artifacts. To further enhance the visual quality, we thoroughly study three key components of SRGAN - network architecture, adversarial loss and perceptual loss, and improve each of them to derive an **Enhanced SRGAN (ESRGAN)**. 
 
