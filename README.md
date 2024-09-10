@@ -1,7 +1,5 @@
 # **VISION2020 - ESRGAN IMPLEMENTATION ON TENSORFLOW 2**
 
-***The project is by Nhan Phan, as his Final Project for the Machine Learning Bootcamp at CoderSchool (Feb/2020)***
-
 ![alt text](https://github.com/xinntao/ESRGAN/blob/master/figures/baboon.jpg?raw=true)
 
 **VISION2020** aims at recovering a high resolution image from a low resolution one. The project is based largely on the excellent research of Xintao Wang, Ke Yu, Shixiang Wu, Jinjin Gu, Yihao Liu, Chao Dong, Yu Qiao, Chen Change Loy on [ESRGAN](https://arxiv.org/pdf/1809.00219v2.pdf) (2018) and their [implementation](https://github.com/xinntao/ESRGAN) using Pytorch.
